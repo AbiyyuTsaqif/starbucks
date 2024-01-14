@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:starbucks/model/menu.dart';
+import 'package:starbucks/screen/detailedmenu.dart';
 
 class home extends StatefulWidget {
   const home({super.key});
@@ -12,6 +13,7 @@ class _homeState extends State<home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0,
         automaticallyImplyLeading: false,
@@ -23,7 +25,7 @@ class _homeState extends State<home> {
             ImageIcon(
               AssetImage("assets/icon/burger.png"),
               color: Colors.black,
-              size: 20,
+              size: 24,
             ),
             Image.asset(
               "assets/icon/logo.png",
@@ -33,7 +35,7 @@ class _homeState extends State<home> {
             ImageIcon(
               AssetImage("assets/icon/shop.png"),
               color: Colors.black,
-              size: 20,
+              size: 24,
             ),
           ],
         ),
@@ -225,75 +227,85 @@ class listMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin:
-          EdgeInsets.only(left: 23, right: addRightMargin ? 23 : 0, bottom: 10),
-      height: 365,
-      width: 256,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(30),
-        // border: Border.all(
-        //   color: Colors.grey,
-        //   width: 1,
-        // ),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.2),
-            offset: Offset(
-                4.0, 4.0), // Adjust the values to control the shadow position
-            blurRadius: 4.0, // Adjust the value to control the blurriness
-          ),
-        ],
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(20),
-            child: Image.asset(
-              iniMenuList.image,
-              height: 270,
-              width: 256,
-              fit: BoxFit.cover,
+    return InkWell(
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return detailedMenu(iniMenuList: iniMenuList);
+        }));
+      },
+      child: Container(
+        margin: EdgeInsets.only(
+            left: 23, right: addRightMargin ? 23 : 0, bottom: 10),
+        height: 365,
+        width: 256,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(20),
+          // border: Border.all(
+          //   color: Colors.grey,
+          //   width: 1,
+          // ),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.2),
+              offset: Offset(
+                4.0,
+                4.0,
+              ),
+              blurRadius: 4.0,
             ),
-          ),
-          Container(
-            height: 80,
-            padding: EdgeInsets.symmetric(vertical: 12, horizontal: 12),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  iniMenuList.name,
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: Colors.black,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      iniMenuList.price,
-                      style: TextStyle(
-                        fontSize: 25,
-                        color: Color(0xff00623b),
-                        fontWeight: FontWeight.w700,
-                      ),
+          ],
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: Image.asset(
+                iniMenuList.image,
+                height: 270,
+                width: 256,
+                fit: BoxFit.cover,
+              ),
+            ),
+            Container(
+              height: 100,
+              padding: EdgeInsets.symmetric(vertical: 17, horizontal: 17),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    iniMenuList.name,
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.black,
+                      fontWeight: FontWeight.w700,
                     ),
-                    Icon(
-                      Icons.favorite,
-                      color: Colors.red,
-                    )
-                  ],
-                ),
-              ],
-            ),
-          )
-        ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        iniMenuList.price,
+                        style: TextStyle(
+                          fontSize: 25,
+                          color: Color(0xff00623b),
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                      Icon(
+                        Icons.favorite,
+                        color: Colors.red,
+                        size: 24,
+                      )
+                    ],
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

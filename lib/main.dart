@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:starbucks/controller.dart';
+import 'package:starbucks/screen/detailedmenu.dart';
 import 'package:starbucks/screen/home.dart';
+import 'package:starbucks/screen/splash.dart';
+import 'package:starbucks/screen/transaction.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +21,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Starbucks',
       theme: ThemeData(fontFamily: 'Raleway'),
-      home: home(),
+      home: splash(),
     );
   }
 }
