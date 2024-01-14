@@ -1,6 +1,16 @@
 # starbucks
 
-A new Flutter project.
+An Implementation of UI to an application using flutter that has made by motion Lab Telkom University to complete the assignment that has given
+
+## About
+this project has 4 screens such as :
+- Splash
+- Home
+- Detailed Menu
+- Transaction
+
+this project only have 1 class :
+- class Menu
 
 ## Getting Started
 
