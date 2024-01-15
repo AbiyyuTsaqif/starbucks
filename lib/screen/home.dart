@@ -237,7 +237,7 @@ class listMenu extends StatelessWidget {
         margin: EdgeInsets.only(
             left: 23, right: addRightMargin ? 23 : 0, bottom: 10),
         height: 365,
-        width: 256,
+        width: 257,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(20),
@@ -264,7 +264,7 @@ class listMenu extends StatelessWidget {
               child: Image.asset(
                 iniMenuList.image,
                 height: 270,
-                width: 256,
+                width: 257,
                 fit: BoxFit.cover,
               ),
             ),
@@ -278,7 +278,7 @@ class listMenu extends StatelessWidget {
                   Text(
                     iniMenuList.name,
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 19,
                       color: Colors.black,
                       fontWeight: FontWeight.w700,
                     ),

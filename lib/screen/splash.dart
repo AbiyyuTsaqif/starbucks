@@ -17,7 +17,7 @@ class _splashState extends State<splash> {
 
   _pushHome() async {
     await Future.delayed(
-      Duration(milliseconds: 1500),
+      Duration(milliseconds: 2500),
       () {},
     );
     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
@@ -27,6 +27,7 @@ class _splashState extends State<splash> {
 
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Center(
         child: Image.asset(
           'assets/icon/logo.png',
